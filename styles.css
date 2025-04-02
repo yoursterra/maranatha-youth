@@ -1,0 +1,550 @@
+@font-face {
+    font-family: 'Amsterdam Four';
+    src: url('fonts/Amsterdam_Four_ttf_400.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Back to Black';
+    src: url('fonts/Back_to_Black.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Intro Rust G';
+    src: url('fonts/IntroRustG_Base2Line.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Cormorant';
+    src: url('fonts/CormorantRegular400.ttf') format('truetype');
+}
+
+
+body {
+    font-family: 'Cormorant', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+/* Ensures the background slider fills the header */
+header {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.background-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Wider than the viewport to enable smooth animation */
+    height: 100%;
+    background: url('media/collage.png');
+    background-size: cover;
+    background-position: 0 0;
+    background-repeat: repeat-x;
+    animation: slideBackground 150s linear infinite; /* Smooth, infinite scrolling */
+    opacity: 0.3; /* Slight transparency to keep the logo visible */
+    z-index: -1; /* Places background slider behind content */
+}
+
+@keyframes slideBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 0; } /* Moves background images from left to right */
+}
+
+.logo-container {
+    position: relative;
+    background-color: none;
+    padding: 0;
+    z-index: 1; /* Keeps the logo video above the background slider */
+    display: inline-block;
+    overflow: hidden;
+}
+
+.logo-video {
+    width: 220px;
+    display: block;
+    /* margin: 0 auto; */
+    padding: 0px;
+    border-radius: 50%;
+    mask-image: radial-gradient(circle, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 60%);
+    -webkit-mask-image: radial-gradient(circle, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 60%);
+}
+
+nav {
+    background-color: rgba(0, 131, 68, 0.6);; /* Green background for navigation */
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+nav a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    padding-inline: 40px;
+    font-family: 'Intro Rust G', Arial, sans-serif;
+    cursor: pointer;
+}
+
+
+
+
+
+
+footer {
+    background-color: rgba(188, 24, 35, 0.6);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: static;
+    bottom: 0;
+}
+
+h1 {
+    color: #bc1823;
+    font-family: 'Back to Black', serif;
+    font-size: 500%;
+    
+}
+
+p {
+    line-height: 35px;
+    font-family:'Cormorant', Verdana;
+    color: rgb(130, 130, 130);
+}
+
+.intro-content {
+    display: block; /* Use flexbox to align items */
+    justify-content: space-between; /* Space between the paragraph and video */
+    align-items: flex-start
+}
+
+
+
+.video-container {
+    flex: 1; /* Allow video container to take equal space */
+    display: flex; /* Center video within the container */
+    justify-content: center; /* Center the video */
+    
+}
+
+.intro-video {
+    width: 60%; /* Allow video to occupy full width of its container */
+    max-width: 800px; /* Set a maximum width for the video */
+    border-radius: 8px; /* Optional: Add some border-radius */
+    opacity: 0.8;
+}
+
+#d1, #d2,#e1,#e2,#f1,#f2,#g1,#g2 {
+    width: 50%;
+}
+
+.video-container {
+    position: relative;
+}
+
+.video-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent;
+    z-index: 1; /* Place this above the video */
+}
+
+
+
+
+.introduction, .events, .joinus, .donate, .contact {
+    padding: 20px;
+    padding-inline: 10%;
+    margin: 20px auto;
+    max-width: 800px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    
+}
+
+#g1, #g2 {
+    padding-bottom: 100px;
+}
+
+.welcome {
+    display: flex;
+}
+
+
+
+
+/* Styles for the desktop navigation */
+.desktop-nav {
+    background-color: rgba(0, 131, 68, 0.6); /* Same as mobile menu color */
+    display: flex; /* Horizontal layout for large screens */
+    justify-content: center;
+    padding: 10px;
+}
+
+/* Styles for the mobile menu */
+.mobile-menu {
+    position: sticky;
+    top: 0;
+    background-color: rgba(0, 131, 68, 0.6); /* Same as nav color */
+    display: none; /* Hide by default for larger screens */
+    justify-content: center;
+    align-items: center;
+    z-index: 2; /* Ensure it's above other content */
+    padding: 10px;
+    flex-direction: column; /* Stack items vertically */
+}
+
+.menu-icon {
+    font-size: 30px; /* Size of the icon */
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.5s ease; /* Transition for the rotation */
+}
+
+.dropdown-menu {
+    display: none; /* Initially hidden */
+    text-align: center; /* Center the menu items */
+    margin-top: 10px; /* Space between icon and dropdown */
+    width: 100%; /* Full width for dropdown */
+}
+
+.dropdown-menu nav {
+    display: flex; /* Use flexbox for vertical alignment */
+    flex-direction: column; /* Stack links vertically */
+    align-items: center; /* Center align the links */
+}
+
+.dropdown-menu nav a {
+    padding: 10px; /* Space between links */
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5); /* Optional: Add a separator between links */
+    width: 100%; /* Make links full width */
+    text-align: center; /* Center text within the links */
+    padding-bottom: 25px;
+    padding-top: 25px;
+    max-width: 65%;
+}
+
+.dropdown-menu nav a:last-child {
+    border-bottom: none; /* Remove bottom border from the last link */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+
+    .introduction, .events, .joinus, .donate, .contact {
+        max-width: 75%;
+    }
+
+    
+    .mobile-menu {
+        display: flex; /* Show mobile menu on small screens */
+    }
+
+    .desktop-nav {
+        display: none; /* Hide the original nav on mobile */
+    }
+
+    nav {
+        background-color: rgba(0, 131, 68, 0);
+    }
+
+    h1 {
+        font-size: 500%;
+        padding-bottom: 40px;
+        margin-top: 0;
+    }
+
+    .introduction h1 {
+        font-size: 420%;
+    }
+
+    .introduction p {
+        flex: 2.3; /* Allow paragraph to take equal space */
+        margin-right: 10px; /* Add spacing between the paragraph and video */
+        font-size: 16px;
+        font-style: italic;
+        font-weight: 600;
+        line-height: 20px;
+        padding-bottom: 60px;
+        padding-inline: 50px;
+    }
+
+    .intro-video {
+        width: 90%;
+        height: 90%;
+    }
+    
+
+    #a1,#a2 {
+        padding-bottom: 50px
+    }
+
+    #b1,#b2 {
+        padding-bottom: 70px
+    }
+
+    #c1,#c2 {
+        padding-bottom: 70px
+    }
+
+    #d1,#d2 {
+        padding-bottom: 80px;
+        width: 70%;
+        height: 70%;
+    }
+
+    #e1,#e2 {
+        padding-bottom: 80px;
+        width: 70%;
+        height: 70%;
+    }
+
+    #f1,#f2 {
+        padding-bottom: 80px;
+        width: 70%;
+        height: 70%;
+    }
+
+    #g1,#g2 {
+        padding-bottom: 20px;
+        width: 70%;
+        height: 70%;
+    }
+
+    .intro-content {
+        display: block;
+    }
+
+    .donate h1 {
+        font-size: 300%;
+    }
+    
+    .contact h1 {
+        font-size: 300%;
+    }
+}
+
+/* Ensure the horizontal menu is always visible on larger screens */
+@media (min-width: 769px) {
+    .mobile-menu {
+        display: none; /* Hide mobile menu on larger screens */
+    }
+    .desktop-nav {
+        display: flex; /* Ensure horizontal nav is displayed */
+    }
+
+    .introduction p {
+        flex: 1; /* Allow paragraph to take equal space */
+        font-style: italic;
+        font-size: 150%;
+        padding-inline: 180px;
+        margin-top: 120px;padding-bottom: 100px;
+    }
+}
+
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio (divide height by width, e.g., 9/16 = 0.5625) */
+    margin-bottom: 20%; /* Optional: adds space between videos */
+    border: 5px;
+    border-width: 2px;
+    border-style: double;
+    border-color: #bc1823;
+    border-radius: 5%;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 5%;
+    
+}
+
+
+
+.joinus h1 {
+    font-size: 400%;
+    padding-bottom: 0;
+}
+
+.joinus p {
+    font-style: italic;
+}
+
+/* General form styles */
+form {
+    display: flex;
+    flex-direction: column; /* Stack form elements vertically */
+    margin: 20px auto; /* Center form with margins */
+    padding: 20px; /* Add some padding around the form */
+    max-width: 600px; /* Set a maximum width for the form */
+    background: #fff; /* White background for the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+label {
+    margin-bottom: 5px; /* Space between label and input */
+    font-weight: bold; /* Make labels bold */
+    color: #bc1823; /* Match the heading color */
+}
+
+input, select {
+    padding: 10px; /* Padding for inputs */
+    margin-bottom: 15px; /* Space between inputs */
+    border: 2px solid #bc1823; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size for inputs */
+}
+
+/* Submit button styles */
+button {
+    background-color: #bc1823; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none; /* No border */
+    padding: 10px 15px; /* Padding for the button */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 18px; /* Button font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+button:hover {
+    background-color: #a1121d; /* Darker color on hover */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    form {
+        padding: 15px; /* Reduced padding for mobile */
+        width: 90%; /* Take 90% of the viewport width */
+    }
+
+    input, select {
+        font-size: 14px; /* Smaller font size on mobile */
+    }
+
+    button {
+        font-size: 16px; /* Adjust button font size */
+        padding: 8px 12px; /* Adjust button padding */
+    }
+}
+
+.contact {
+    padding: 20px;
+    text-align: center;
+}
+
+.board-member {
+    margin: 20px;
+    display: inline-block;
+    text-align: center;
+    width: 250px; /* Set a fixed width for uniformity */
+}
+
+.board-image {
+    width: 150px; /* Set image width */
+    height: 150px; /* Set image height */
+    border-radius: 50%; /* Make the image round */
+    object-fit: cover; /* Ensures the image covers the entire area */
+    margin-bottom: 10px; /* Space between image and text */
+}
+
+.contact-buttons {
+    margin-top: 10px;
+}
+
+.call-button,
+.whatsapp-button {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+}
+
+.call-button {
+    background-color: #bc1823; /* Call button color */
+}
+
+.call-button:hover {
+    background-color: #a1121d; /* Darker color on hover */
+}
+
+.whatsapp-button {
+    background-color: #25D366; /* WhatsApp button color */
+}
+
+.whatsapp-button:hover {
+    background-color: #1da851; /* Darker color on hover */
+}
+
+.email-section {
+    margin-top: 30px;
+    text-align: left; /* Left-align text for email section */
+    max-width: 600px; /* Set a max width for readability */
+    margin-left: auto;
+    margin-right: auto; /* Center email section */
+}
+
+.email-section a {
+    color: #bc1823; /* Color for email link */
+    text-decoration: underline; /* Underline email link */
+}
+
+.email-section p {
+    margin: 5px 0; /* Add margin between paragraphs */
+}
+
+
+.donate-section {
+    text-align: center; /* Center align the content */
+    margin-top: 20px; /* Space above the section */
+}
+
+.ozow-logo {
+    max-width: 200px; /* Limit the width of the Ozow logo */
+    margin-bottom: 20px; /* Space between the image and button */
+}
+
+.donate-button {
+    display: inline-block; /* Make the button an inline block */
+    padding: 10px 20px; /* Button padding */
+    background-color: #bc1823; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 18px; /* Button font size */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.donate-button:hover {
+    background-color: #a1121d; /* Darker color on hover */
+}
+
+

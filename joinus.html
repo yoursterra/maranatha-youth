@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Us! - Maranatha Youth with Mission</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="media/logocirclepng.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="background-slider"></div>
+        <div class="logo-container">
+            <video src="media/logovid.mp4" autoplay loop muted class="logo-video" playsinline></video>
+        </div>
+    </header>
+
+    <nav class="desktop-nav">
+        <a href="index.html">Home</a>
+        <a href="events.html">Events</a>
+        <a href="joinus.html">Join Us</a>
+        <a href="donate.html">Donate</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+    
+    <div class="mobile-menu">
+        <div class="menu-icon" onclick="toggleMenu()">
+            &#9776; <!-- This is the hamburger icon -->
+        </div>
+        <div class="dropdown-menu">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="events.html">Events</a>
+                <a href="joinus.html">Join Us</a>
+                <a href="donate.html">Donate</a>
+                <a href="contact.html">Contact Us</a>
+            </nav>
+        </div>
+    </div>
+    
+
+    <main>
+        <section class="joinus">
+            <h1>Join Us</h1>
+            <p>
+                Anyone aged 6 to 35 is welcome to apply for membership, no matter their background! Just complete the application form and pay a one-time joining fee of R10, with a monthly contribution of R2.
+            </p>
+            
+            <!-- Application Form -->
+            <form id="application-form" onsubmit="submitForm(event)">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+        
+                <label for="surname">Surname:</label>
+                <input type="text" id="surname" name="surname" required>
+        
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" min="6" max="35" required>
+        
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="" disabled selected>Select your gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+        
+                <label for="cellphone">Cellphone Number:</label>
+                <input type="tel" id="cellphone" name="cellphone" required>
+        
+                <button type="submit">Submit</button>
+            </form>
+        
+            <p class="block">
+                Membership will end if a member gets married or in cases of serious conduct issues. For other concerns, a temporary suspension may apply while they are reviewed. For full details, please review the following docs:
+            </p>
+            
+            <a href="docs/MARANATHA YOUTH WITH MISSION PROJECT information booklet.pdf." target="_blank" style="text-decoration: none;">Information Booklet</a>
+            <br><br>
+            <a href="docs/APPLICATION FOR MEMBERSHIP.pdf" target="_blank" style="text-decoration: none;">Application for Membership</a>
+            <br><br>
+            <a href="docs/2025 MYM CALENDAR.pdf" target="_blank" style="text-decoration: none;">2025 Calendar</a>
+            <br><br>
+            <a href="docs/MARANATHA CODE OF CONDUCT.pdf" target="_blank" style="text-decoration: none;">CODE OF CONDUCT</a>
+        </section>
+    </main>
+
+    <footer>
+        <p style="color: white;">&copy; 2008 MARANATHA YOUTH WITH MISSION. All Rights Reserved</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
